@@ -25,8 +25,8 @@ resource "aws_autoscaling_group" "example-autoscaling" {
   #vpc_zone_identifier  = ["${aws_subnet.main-public-1.id}", "${aws_subnet.main-public-2.id}"]
   vpc_zone_identifier  = ["${aws_subnet.main-private-1.id}", "${aws_subnet.main-private-2.id}"]
   launch_configuration = "${aws_launch_configuration.example-launchconfig.name}"
-  min_size             = 2
-  max_size             = 2
+  min_size             = 1
+  max_size             = 1
   health_check_grace_period = 300
   health_check_type = "ELB"
   load_balancers = ["${aws_elb.my-elb.name}"]
